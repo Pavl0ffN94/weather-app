@@ -12,10 +12,9 @@ const input = document.querySelector('.input');
 //Отправка запроса на сервер в асинхронном виде
 async function getWeater(city) {
   // Адрес запроса
-  const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+  const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
   const response = await fetch(url);
   const data = await response.json();
-  console.log(data);
   return data;
 }
 
@@ -67,9 +66,8 @@ form.onsubmit = async function (e) {
     showError(data.error.message);
   } else {
     removeCard();
-
+//здесь в массиве с состояниями погоды ищу состояние и его перевод на рус яз
     const info = conditions.find(el => el.code === data.current.condition.code);
-    console.log(info.languages[23]['day_text']);
     // Объект который сделан из получиных данных из апи, с удобным названием свойств
     const weatherData = {
       name: data.location.name,
@@ -80,7 +78,6 @@ form.onsubmit = async function (e) {
         : info.languages[23]['night_text'],
       icon: data.current.condition.icon,
     };
-    console.log(data.current.condition.code);
 
     showCard(weatherData);
   }
