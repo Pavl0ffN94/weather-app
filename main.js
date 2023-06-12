@@ -18,7 +18,7 @@ async function getWeater(city) {
   console.log(data);
   return data;
 }
-
+//comit 12.06
 // Ф-ция которая отрисовывает карточку(данные берет из объекта weatherData)
 function showCard({name, country, temp, condition, icon}) {
   const html =
