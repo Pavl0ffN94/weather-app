@@ -59,8 +59,9 @@ form.onsubmit = async function (e) {
   // Беру значение из инпута, обрезаю пробелы
   let city = input.value.trim();
   //Получаю данные с сервера
-  const data = await getWeater(city); // вот здесь
+  const data = await getWeater(city); // вот здесь асинх.ответ
 
+//Усли есть ошибка вывожу ее в карточке
   if (data.error) {
     removeCard();
     showError(data.error.message);
@@ -84,3 +85,4 @@ form.onsubmit = async function (e) {
     showCard(weatherData);
   }
 };
+// Хотел сделать другие иконки но посчитал что это уже слишком долго, так что если скажите что нужны другие-сделаю.

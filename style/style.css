@@ -141,8 +141,8 @@ body {
 }
 
 .card-img {
-  width: 120px;
-  height: 120px;
+  width: 64px;
+  height: 64px;
   object-fit: cover;
 }
 
